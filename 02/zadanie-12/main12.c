@@ -8,7 +8,7 @@ void sumanliczb(int n){
         scanf("%d",&a);
         suma+=a;
     }
-    printf("suma: %d",suma);
+    printf("suma: %d\n",suma);
 };
 
 void odejmowanie(int liczba){
@@ -17,7 +17,7 @@ void odejmowanie(int liczba){
             scanf("%d",&a);
             liczba-=a;
         };
-        printf("wynik: %d",liczba);
+        printf("wynik: %d\n",liczba);
 };
 
 int mnozenie(int a, int b){
@@ -57,55 +57,63 @@ int silnia(int a){
 int main()
 {
     int a,b,c;
-    printf("KALKULATOR \n");
-    printf("menu (wpisz cyfre): \n 1.dodawanie n liczb\n 2.odejmowanie od liczby az do momentu podania '0'\n");
-    printf(" 3.mnozenie dwoch liczb\n 4.dzielenie liczby\n 5.potegowanie\n 6.kwadrat liczby\n 7.silnia\n");
-    scanf("%d", &c);
-    switch (c){
-    case 1:
-        printf("Podaj ile liczb zsumowac: ");
-        scanf("%d",&a);
-        sumanliczb(a);
-        break;
-    case 2:
-        printf("Podaj liczbe od ktorej chcesz odejmowac kolejne liczby: ");
-        scanf("%d",&a);
-        odejmowanie(a);
-        break;
-    case 3:
-        printf("Podaj dwie liczby do wykonania mnozenia: ");
-        scanf("%d %d", &a,&b);
-        printf("Wynik: %d", mnozenie(a,b));
-        break;
-    case 4:
-        printf("POdaj dwie liczby do wykonania dzielenia: ");
-        scanf("%d %d",&a,&b);
-        if(b==0){
-            printf("Nie mozna dzielic przez zero!!!");
-        }else{
-            printf("wynik: %.02f",dzielenie(a,b));
+    c=1;
+    while(c!=0){
+        printf("KALKULATOR \n");
+        printf("menu (wpisz cyfre): \n 1.dodawanie n liczb\n 2.odejmowanie od liczby az do momentu podania '0'\n");
+        printf(" 3.mnozenie dwoch liczb\n 4.dzielenie liczby\n 5.potegowanie\n 6.kwadrat liczby\n 7.silnia\n 0.zamknij kalkulator\n");
+        scanf("%d", &c);
+        switch (c){
+        case 0:
+            return 0;
+
+        case 1:
+            printf("Podaj ile liczb zsumowac: ");
+            scanf("%d",&a);
+            sumanliczb(a);
+            break;
+        case 2:
+            printf("Podaj liczbe od ktorej chcesz odejmowac kolejne liczby: ");
+            scanf("%d",&a);
+            odejmowanie(a);
+            break;
+        case 3:
+            printf("Podaj dwie liczby do wykonania mnozenia: ");
+            scanf("%d %d", &a,&b);
+            printf("Wynik: %d\n", mnozenie(a,b));
+            break;
+        case 4:
+            printf("POdaj dwie liczby do wykonania dzielenia: ");
+            scanf("%d %d",&a,&b);
+            if(b==0){
+                printf("Nie mozna dzielic przez zero!!!\n");
+            }else{
+                printf("wynik: %.02f\n",dzielenie(a,b));
+            };
+            break;
+        case 5:
+            printf("Podaj podstawe potegowania: ");
+            scanf("%d", &a);
+            printf("Podaj wykladnik: ");
+            scanf("%d",&b);
+            printf("Wynik: %d\n",potegowanie(a,b));
+            break;
+        case 6:
+            printf("Podaj liczbe jakiej kwadrat chcesz obliczyc: ");
+            scanf("%d",&a);
+            printf("Wynik: %d\n",kwadrat(a));
+            break;
+        case 7:
+            printf("Podaj liczbe do jakiej wynik silni chcesz znac: ");
+            scanf("%d",&a);
+            printf("Wynik: %d\n",silnia(a));
+            break;
+        default:
+            printf("Podana liczbe ze zlego zakresu\n");
+            break;
         };
-        break;
-    case 5:
-        printf("Podaj podstawe potegowania: ");
-        scanf("%d", &a);
-        printf("Podaj wykladnik: ");
-        scanf("%d",&b);
-        printf("Wynik: %d",potegowanie(a,b));
-        break;
-    case 6:
-        printf("Podaj liczbe jakiej kwadrat chcesz obliczyc: ");
-        scanf("%d",&a);
-        printf("Wynik: %d",kwadrat(a));
-        break;
-    case 7:
-        printf("Podaj liczbe do jakiej wynik silni chcesz znac: ");
-        scanf("%d",&a);
-        printf("Wynik: %d",silnia(a));
-        break;
-    default:
-        printf("Podana liczbe ze zlego zakresu");
-        break;
-    };
+        printf("\n");
+    }
+
     return 0;
 }
